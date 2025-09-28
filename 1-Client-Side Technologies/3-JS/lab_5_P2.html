@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Todo List(Day 5 P2)</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+        .container {
+            padding: 10px;
+            border: 1px solid black;
+            margin: 0px auto;
+            width: 500px;
+            height: 90vh;
+        }
+        .task {
+            padding: 10px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .done {
+            background-color: #d4edda;
+            color: green;
+            font-weight: bold;
+        }
+        hr {
+            margin: 30px 0;
+            border: none;
+            height: 1px;
+            background-color: black;
+        }
+        
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Todo List</h2>
+        <input type="text" id="taskInput" placeholder="Enter task name">
+        <button onclick="addTask()">Add Task</button>
+        <hr>
+        <div id="taskList"></div>
+    </div>
+    <script>
+        var tasks = [];
+
+        function renderTasks() {
+            var taskListDiv = document.getElementById("taskList");
+            taskListDiv.innerHTML = "";
+
+            for (var i = 0; i < tasks.length; i++) {
+                (function (index) {
+                    var task = tasks[index];
+                    var taskDiv = document.createElement("div");
+                    taskDiv.className = "task";
+                    if (task.status === "done") {
+                        taskDiv.className += " done";
+                    }
+                    var taskText = document.createTextNode(task.name);
+                    taskDiv.appendChild(taskText);
+                    var doneBtn = document.createElement("button");
+                    doneBtn.textContent = "✔";
+                    doneBtn.style.color = "green";
+                    doneBtn.onclick = function () {
+                        tasks[index].status = "done";
+                        renderTasks();
+                    };
+                    taskDiv.appendChild(doneBtn);
+
+                    var deleteBtn = document.createElement("button");
+                    deleteBtn.textContent = "X";
+                    deleteBtn.style.color = "red";
+                    deleteBtn.onclick = function () {
+                        tasks.splice(index, 1);
+                        renderTasks();
+                    };
+                    taskDiv.appendChild(deleteBtn);
+                    taskListDiv.appendChild(taskDiv);
+                })(i);
+            }
+        }
+
+        function addTask() {
+            var taskInput = document.getElementById("taskInput");
+            var taskName = taskInput.value.trim();
+
+            if (taskName !== "") {
+                tasks.push({ name: taskName, status: "pending" });
+                taskInput.value = "";
+                renderTasks();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

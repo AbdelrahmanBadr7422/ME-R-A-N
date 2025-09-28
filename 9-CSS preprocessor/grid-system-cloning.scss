@@ -1,0 +1,23 @@
+@import './abstracts/variables';
+@import './abstracts/mixins';
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $gap;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$gap;
+  margin-right: -$gap;
+}
+
+.col {
+  padding-left: $gap;
+  padding-right: $gap;
+  max-width: 100%;
+}
+
+@include generate-columns;

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3</title>
+</head>
+
+<body>
+    <script>
+
+        // // [LAB 1]
+        // //  [TASK 2] JavaScript is a scripting language that used to add interactivity and dynamic behavior to websites
+        /*[TASK 3]
+            -JavaScript Usage
+                Web Development:
+                    Interactive elements
+                    Dynamic content updates
+                    Complex web applications
+                    Building single-page applications
+                Back-end Development (Node.js)
+        */
+        //[TASK 4 & 5]
+        console.log("Abdelrahman Gamal"); // showing my name in console
+        console.log("22"); // showing my age in console
+        console.log("JavaScript & C#"); // showing my favorite programming language
+
+        //[LAB 2]
+        //[TASK 1 & 2]
+        var firstName = "Abdelrahman"; //camelCase
+        var LastName = "Gamal"; //PascalCase
+        var age_in_years = 23; //underscore 
+        var isStudent = false;
+
+        //[TASK 3 & 5]
+        try {
+            // var 15ve = 100; // start with number
+            // var @#ve = 100; // start with spicial char
+            // var var = 100; // reserved words
+
+        } catch (e) {
+            console.error(e);
+        }
+        //[TASK 4]
+        console.log(firstName);
+        console.log(LastName);
+        console.log(age_in_years);
+        console.log(isStudent);
+
+        // [Lab 3]
+        // [Task 1 & 2 & 3]
+        var grade = parseInt(prompt("Enter numerical grade"));
+        if (grade <= 100 && grade >= 90) {
+            console.log("Excellent");
+        } else if (grade < 90 && grade >= 75) {
+            console.log("Good");
+        } else if (grade < 75 && grade >= 60) {
+            console.log("Pass");
+        } else if (grade < 50 && grade >= 0) {
+            console.log("Fail");
+        } else {
+            console.log("Invalid input");
+        }
+
+        // [Lab 4]
+        // [Task 1 & 2]
+        var randomPrice = Math.floor(Math.random() * 100);
+        console.log(randomPrice);
+
+        // [Lab 5]
+        // [Task 1]
+        var product = prompt("Enter a product name (e.g., 'Laptop'):");
+        // [Task 3]
+        var productLower = product.toLowerCase();
+        // [Task 2]
+        if (productLower.includes("laptop")) {
+            alert("The product includes the keyword 'laptop'.");
+        }
+        if (productLower.indexOf("phone") !== -1) {
+            alert("The product contains the keyword 'phone'.");
+        }
+        if (productLower.startsWith("tablet")) {
+            alert("The product starts with the keyword 'tablet'.");
+        }
+
+        // [Lab 6]
+        // [Task 1]
+        var currentDate = new Date();
+        console.log("Current Date:", currentDate.toDateString());
+        // [Task 2]
+        currentDate.setDate(currentDate.getDate() + 3);
+        console.log("Date after 3 days:", currentDate.toDateString());
+
+        // [Lab 7]
+        // [Task 1 & 2]
+        var correctPassword = "12345";
+        var attempts = 3;
+        var userInput = "";
+        while (attempts > 0 && userInput !== correctPassword) {
+            userInput = prompt("Enter your password:");
+            if (userInput === correctPassword) {
+                alert("Login successful!");
+                break;
+            } else {
+                attempts--;
+                if (attempts > 0) {
+                    alert("Incorrect password. Attempts left: " + attempts);
+                } else {
+                    alert("No attempts left. Access denied.");
+                }
+            }
+        }
+        attempts = 3;
+        do {
+            userInput = prompt("Enter your password:");
+            if (userInput === correctPassword) {
+                alert("Login successful!");
+                break;
+            } else {
+                attempts--;
+                if (attempts > 0) {
+                    alert("Incorrect password. Attempts left: " + attempts);
+                } else {
+                    alert("No attempts left. Access denied.");
+                }
+            }
+        } while (attempts > 0);
+
+        // [Lab 8]
+        // [Task 1]
+        for (var i = 1; i <= 50; i++) {
+            // [Task 2]
+            if (i % 2 === 0) {
+                continue;
+            }
+            console.log(i);
+            // [Task 3]
+            if(i>=37){
+                break;
+            }
+        }
+
+        // [Lab 9]
+        // [Task 1]
+        var rows = parseInt(prompt("Enter the number of rows for the triangle (e.g., 4):"));
+        // [Task 2]
+        var output = "";
+        for (var i = 1; i <= rows; i++) {
+            for (var j = 1; j <= i; j++) {
+                output += "*";
+            }
+            output += "\n"; 
+        }
+        console.log(output);
+        alert(output);
+
+        //[Lap 10]
+        // [Task 1]
+        var amount = parseFloat(prompt("Enter the initial amount (e.g., 1000):"));
+        // [Task 2]
+        var taxRate = 0.15;
+        var discountRate = 0.10;
+        // [Task 3]
+        amount += amount * taxRate;
+        amount -= amount * discountRate;
+        alert("Final price after tax and discount is: " + amount.toFixed(2));
+
+
+        //[Lap 11]
+        //[Task 1]
+        var password = prompt("Enter your password:");
+        var hasLetter = false;
+        var hasNumber = false;
+        //[Task 2]
+        for (var i = 0; i < password.length; i++) {
+            var char = password.charAt(i);
+            var charCode = password.charCodeAt(i);
+            if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+                hasLetter = true;
+            }
+            if (charCode >= 48 && charCode <= 57) {
+                hasNumber = true;
+            }
+        }
+        var isLongEnough = password.length >= 8;
+        //[Task 3]
+        if (isLongEnough && hasLetter && hasNumber) {
+            alert("Your password is strong.");
+        } else {
+            alert("Your password is weak. It must be at least 8 characters long and contain both letters and numbers.");
+        }
+
+        //[Lap 12]
+        //[Task 1 & 2]
+        var prefix = "PROMO";
+        var promoCodes = [];
+        for (var i = 0; i < 5; i++) {
+            var randomNumber = Math.floor(Math.random() * 9000) + 1000;
+            var code = prefix + randomNumber;
+            promoCodes.push(code);
+        }
+        //[Task 3]
+        var allCodes = "Generated Promo Codes:\n";
+        for (var j = 0; j < promoCodes.length; j++) {
+            allCodes += promoCodes[j] + "\n";
+        }
+        alert(allCodes);
+
+        //[Lap 13]
+        //[Task 1]
+        (function () {
+            var config = {
+                siteName: "MySite",
+                version: "1.0.0",
+            };
+            console.log("Config loaded:", config);
+        })();
+        //[Task 3]
+        console.log(typeof config);
+
+        //[Lap 14]
+        try {
+            var num1 = parseFloat(prompt("Enter the first number:"));
+            var num2 = parseFloat(prompt("Enter the second number:"));
+            var operator = prompt("Enter an operator (+, -, *, /):");
+            var result;
+            if (isNaN(num1) || isNaN(num2)) {
+                throw new Error("Invalid number input.");
+            }
+            if (operator === "+") {
+                result = num1 + num2;
+            } else if (operator === "-") {
+                result = num1 - num2;
+            } else if (operator === "*") {
+                result = num1 * num2;
+            } else if (operator === "/") {
+                if (num2 === 0) {
+                    throw new Error("Cannot divide by zero.");
+                }
+                result = num1 / num2;
+            } else {
+                throw new Error("Unsupported operator.");
+            }
+            alert("Result: " + result);
+        } catch (error) {
+            alert("Error: " + error.message);
+        } finally {
+            console.log("Calculation attempt completed.");
+        }
+    </script>
+    <script src="labs 1-2-3.js"></script>
+</body>
+
+</html>

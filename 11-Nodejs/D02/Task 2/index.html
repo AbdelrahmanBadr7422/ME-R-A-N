@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Tickets</title>
+</head>
+<body>
+    <button type="button" onclick="showAllTickets()"> Show All Tickets </button>
+    <div id="display" class="container"></div>
+    <script type="module" src="./app.js">
+
+        function showAllTickets() {
+  let div = document.getElementById("display");
+  div.innerHTML = '';
+  for (let ticket of FlightTicket.showAllTickets()) {
+    let p = document.createElement("p");
+    p.textContent = ticket;
+    div.appendChild(p);
+  }
+}
+    </script> <!-- إضافة type="module" هنا -->
+</body>
+</html>

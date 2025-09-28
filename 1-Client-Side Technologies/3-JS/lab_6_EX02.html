@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 6 P2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+      text-align: center;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+      width: 200px;
+    }
+
+    button {
+      padding: 8px 15px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    #output {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>cookies</h2>
+  <div>
+    <input type="text" id="cookieName" placeholder="Cookie Name">
+    <input type="text" id="cookieValue" placeholder="Cookie Value">
+    <input type="number" id="cookieDays" placeholder="Days (optional)">
+    <button onclick="setCookie()">Set Cookie</button>
+  </div>
+  <div>
+    <button onclick="showCookies()">Show Cookies</button>
+    <button onclick="checkCookie()">Check Cookie</button>
+  </div>
+  <div id="output">Output will appear here...</div>
+  <script>
+    function setCookie() {
+      var name = document.getElementById("cookieName").value.trim();
+      var value = document.getElementById("cookieValue").value.trim();
+      var days = document.getElementById("cookieDays").value;
+
+      if (!name || !value) {
+        alert("Please enter both name and value.");
+        return;
+      }
+
+      var cookieStr = name + "=" + value + "; path=/;";
+
+      if (days) {
+        var d = new Date();
+        d.setTime(d.getTime() + (parseInt(days) * 24 * 60 * 60 * 1000));
+        cookieStr += " expires=" + d.toUTCString() + ";";
+      }
+
+      document.cookie = cookieStr;
+      showMessage("Cookie set: <code>" + name + "=" + value + "</code>");
+    }
+
+    function showCookies() {
+      var all = document.cookie;
+      if (!all) {
+        showMessage("No cookies found.");
+        return;
+      }
+
+      var cookieArray = all.split("; ");
+      var output = "<strong>Cookies:</strong><br>" + cookieArray.join("<br>");
+      showMessage(output);
+    }
+
+    function checkCookie() {
+      var name = document.getElementById("cookieName").value.trim();
+      if (!name) {
+        alert("Enter cookie name to check.");
+        return;
+      }
+
+      var exists = document.cookie.indexOf(name + "=") !== -1;
+      showMessage(exists
+        ? "Cookie <strong>" + name + "</strong> exists."
+        : "Cookie <strong>" + name + "</strong> does not exist.");
+    }
+
+    function showMessage(msg) {
+      document.getElementById("output").innerHTML = msg;
+    }
+  </script>
+
+</body>
+
+</html>

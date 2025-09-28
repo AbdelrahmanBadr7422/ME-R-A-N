@@ -1,0 +1,21 @@
+@import "variables";
+
+@mixin generate-columns {
+ @for $i from 1 through 12 {
+        .col-#{$i} {
+          max-width: percentage($i / $columns);
+        }
+      }
+
+  @each $breakpoint, $size in $breakpoints {
+    @media (min-width: $size) {
+      @for $i from 1 through 12 {
+        .col-#{$breakpoint}-#{$i} {
+          max-width: percentage($i / $columns);
+        }
+      }
+    }
+  }
+}
+
+ 

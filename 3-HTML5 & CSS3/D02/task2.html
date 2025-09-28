@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Video Player with Playlist</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .video-container {
+      display: inline-block;
+      background-color: #000;
+      border: 5px solid #555;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    video {
+      width: 600px;
+      height: 340px;
+      background: black;
+      border-radius: 5px;
+    }
+
+    .controls {
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .controls button,
+    .controls input[type="range"] {
+      padding: 6px 12px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .controls button {
+      background-color: #555;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      background-color: #777;
+    }
+
+    .controls input[type="range"] {
+      width: 150px;
+    }
+
+    .playlist {
+      margin-top: 20px;
+    }
+
+    .playlist ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .playlist li {
+      margin: 8px 0;
+    }
+
+    .playlist a {
+      color: #00aced;
+      text-decoration: none;
+    }
+
+    .playlist a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Video Player with Playlist</h1>
+
+  <div class="video-container">
+    <video id="videoPlayer" poster="media/p.png">
+      <source src="sample.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <div class="controls">
+      <button id="prevBtn">Prev</button>
+      <button id="playBtn">Play</button>
+      <button id="nextBtn">Next</button>
+      <button id="muteBtn">Mute</button><br>
+      Volume:
+      <input type="range" id="volumeControl" min="0.1" max="1" step="0.1" value="1"><br>
+      Progress:
+      <input type="range" id="progressBar" value="0" min="0" max="100" step="0.1">
+    </div>
+  </div>
+
+  <div class="playlist">
+    <h2>Playlist</h2>
+    <ul id="playlist">
+      <li><a href="media/sample.mp4">Video 1 - Big Buck Bunny</a></li>
+      <li><a href="media/ed_1024_512kb.mp4">Video 2</a></li>
+    </ul>
+  </div>
+
+  <script>
+    var video = document.getElementById("videoPlayer");
+    var playBtn = document.getElementById("playBtn");
+    var muteBtn = document.getElementById("muteBtn");
+    var volumeControl = document.getElementById("volumeControl");
+    var progressBar = document.getElementById("progressBar");
+    var playlistLinks = document.getElementById("playlist").getElementsByTagName("a");
+
+    var currentIndex = 0;
+
+    var videoSources = [];
+    for (var i = 0; i < playlistLinks.length; i++) {
+      videoSources.push(playlistLinks[i].getAttribute("href"));
+    }
+
+    function loadVideo(index) {
+      if (index >= 0 && index < videoSources.length) {
+        video.src = videoSources[index];
+        video.load();
+        video.play();
+        currentIndex = index;
+        playBtn.innerHTML = "Stop";
+      }
+    }
+
+    playBtn.onclick = function () {
+      if (video.paused) {
+        video.play();
+        playBtn.innerHTML = "Stop";
+      } else {
+        video.pause();
+        playBtn.innerHTML = "Play";
+      }
+    };
+
+    muteBtn.onclick = function () {
+      video.muted = !video.muted;
+      muteBtn.innerHTML = video.muted ? "Unmute" : "Mute";
+    };
+
+    volumeControl.oninput = function () {
+      video.volume = parseFloat(this.value);
+    };
+
+    video.ontimeupdate = function () {
+      var value = (100 / video.duration) * video.currentTime;
+      progressBar.value = value;
+    };
+
+    progressBar.oninput = function () {
+      video.currentTime = video.duration * (progressBar.value / 100);
+    };
+
+    for (var j = 0; j < playlistLinks.length; j++) {
+      (function (index) {
+        playlistLinks[index].onclick = function (e) {
+          e.preventDefault();
+          loadVideo(index);
+        };
+      })(j);
+    }
+
+    document.getElementById("nextBtn").onclick = function () {
+      var next = currentIndex + 1;
+      if (next >= videoSources.length) {
+        next = 0;
+      }
+      loadVideo(next);
+    };
+
+    document.getElementById("prevBtn").onclick = function () {
+      var prev = currentIndex - 1;
+      if (prev < 0) {
+        prev = videoSources.length - 1;
+      }
+      loadVideo(prev);
+    };
+  </script>
+
+</body>
+</html>

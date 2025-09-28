@@ -1,0 +1,7 @@
+// @import '../abstracts/variables';
+
+@each $name, $size in $font-sizes {
+  .font-#{$name} {
+    font-size: $size;
+  }
+}

@@ -1,0 +1,15 @@
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+
+$font-sizes: 18px, 16px, 14px;
+
+// ----------Grid System-----------
+$columns: 12;
+$gap : 15px ;
+$breakpoints: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);

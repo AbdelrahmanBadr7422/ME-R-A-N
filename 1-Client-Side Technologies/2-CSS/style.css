@@ -1,0 +1,91 @@
+body {
+    position: relative;
+    margin: 0;
+}
+#header h1 {
+    text-align: center;
+    background-color: #009688;
+    color: white;
+    padding: 15px;
+    margin: 0;
+    position: relative;
+}
+
+#linksbar  {
+    display: inline-block;
+    width: 24%;
+    position: absolute;
+    right: 0;
+    margin: 0;
+    padding: 15px;
+    border-left: 2px solid black;
+
+}
+#linksbar #loginform input {
+    display: block;
+    margin: 5px;
+    padding: 5px;
+}
+#linksbar #loginform button {
+    padding: 10px 30px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 5px;
+    margin-left: 0;
+    width: 50%;
+}
+#linksbar ul {
+    list-style-type: none;
+}
+#linksbar ul li a {
+    text-decoration: none;
+    display: inline-block;
+    width: 50%;
+    padding: 15px;
+    background-color: #009688;
+    margin: 5px;
+    font-family: sans-serif;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+#customerslist {
+    display: inline-block;
+    width: 74%;
+}   
+#customerslist #customers{
+    width: 100%;
+}
+#customerslist #customers th,
+#customerslist #customers td {
+    display: inline-block;
+    width: 25%;
+    padding: 20px 30px;
+    margin: 1px;
+    border-left: 2px solid white;
+}
+thead th{
+    color: white;
+    font-weight: 800;
+}
+tr:nth-child(odd) {
+    background-color: #2196F3;
+}
+#content {
+    width: 75%;
+}
+#content #aboutus{
+    display: inline-block;
+    width: 49%;
+}
+#content #titles {
+    display: inline-block;
+    width: 49%;
+}
+#content #titles p {
+    display: inline-block;
+    width: 30%;
+}

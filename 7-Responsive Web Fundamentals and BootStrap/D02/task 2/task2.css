@@ -1,0 +1,62 @@
+.container {
+  display: grid;
+  width: 500px;
+  border: 1px solid black;
+  height: 500px;
+  margin: 10px auto;
+  grid-template-areas:
+    "one two two"
+    "one three four"
+    "five five four";
+  gap: 5px;
+}
+.container div {
+  background-color: #0000009e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+
+  perspective: 1200px;
+  transform-style: preserve-3d;
+
+  transition: transform 1s ease-in-out;
+}
+.item1 {
+  grid-area: one;
+}
+.item2 {
+  grid-area: two;
+}
+.item3 {
+  grid-area: three;
+}
+.item4 {
+  grid-area: four;
+}
+.item5 {
+  grid-area: five;
+}
+
+.container:hover {
+  animation: spin3d 3s linear infinite;
+}
+@keyframes spin3d {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(20deg) rotateY(90deg);
+  }
+  50% {
+    transform: rotateX(45deg) rotateY(180deg);
+  }
+  75% {
+    transform: rotateX(20deg) rotateY(270deg);
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(360deg);
+  }
+}

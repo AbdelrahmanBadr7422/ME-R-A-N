@@ -1,0 +1,26 @@
+.main-title {
+  color: #3498db;
+}
+.main-subtitle {
+  color: #2ecc71;
+}
+
+.main .main-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.main .main-btn:hover {
+  background-color: #2ecc71;
+}
+
+.finish-btn {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .finish-btn {
+    width: 50%;
+  }
+}/*# sourceMappingURL=main.css.map */

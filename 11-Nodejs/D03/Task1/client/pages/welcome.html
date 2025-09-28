@@ -1,0 +1,40 @@
+<!-- ✅ client/pages/welcome.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clients</title>
+  <link rel="stylesheet" href="../styles/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body style="padding: 20px;">
+
+
+  <h1>Welcome {clientName}</h1>
+  <p>Mobile Number: {mobile}</p>
+  <p>Email: {email}</p>
+  <p>Address: {address}</p>
+  <hr>
+
+  <h2>All Clients</h2>
+  <button id="loadClientsBtn">Load Clients</button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="clientsBody"></tbody>
+  </table>
+  <script src="../scripts/script.js"></script>
+</body>
+
+</html>
