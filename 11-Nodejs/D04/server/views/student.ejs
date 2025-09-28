@@ -1,0 +1,105 @@
+<%- include('header') %>
+
+  <div class="container mt-4">
+    <h2>Students</h2>
+
+    <form id="studentForm" onsubmit="addStudent(event)">
+      <div class="form-group">
+        <label for="studentName">Student Name</label>
+        <input id="studentName" class="form-control" name="name" placeholder="Student Name" required />
+      </div>
+
+      <div class="form-group mt-2">
+        <label for="email">Email</label>
+        <input id="email" class="form-control" name="email" placeholder="Email" required />
+      </div>
+
+      <div class="form-group mt-2">
+        <label for="dept">Department</label>
+        <select id="dept" class="form-control" name="department" required>
+          <option value="">Select Department</option>
+          <% departmentsList.forEach(dep=> { %>
+            <option value="<%= dep._id %>">
+              <%= dep.name %>
+            </option>
+            <% }) %>
+        </select>
+      </div>
+
+      <button class="btn btn-primary mt-3" type="submit">Add Student</button>
+    </form>
+
+    <table class="table table-bordered mt-4">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+        </tr>
+      </thead>
+      <tbody id="studentsTableBody">
+        <% students.forEach(s=> { %>
+          <tr>
+            <td>
+              <%= s.name %>
+            </td>
+            <td>
+              <%= s.email %>
+            </td>
+            <td>
+              <%= s.department?.name || 'N/A' %>
+            </td>
+
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    async function addStudent(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('studentName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const department = document.getElementById('dept').value;
+
+      if (!name || !email) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      const studentData = { name, email, department };
+
+      try {
+        const response = await fetch('/api/students', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(studentData)
+        });
+
+        if (!response.ok) {
+          const error = await response.json();
+          throw new Error(error.message || 'Failed to add student');
+        }
+
+        const result = await response.json();
+
+        const tableBody = document.getElementById('studentsTableBody');
+        const newRow = document.createElement('tr');
+
+
+        newRow.innerHTML = `
+        <td>${result.name}</td>
+        <td>${result.email}</td>
+        <td>${result.department?.name || 'N/A'}</td>
+      `;
+
+        tableBody.appendChild(newRow);
+        document.getElementById('studentForm').reset();
+        document.getElementById('studentName').focus();
+        alert('Student added successfully!');
+      } catch (err) {
+        alert(`Error: ${err.message}`);
+      }
+    }
+  </script>

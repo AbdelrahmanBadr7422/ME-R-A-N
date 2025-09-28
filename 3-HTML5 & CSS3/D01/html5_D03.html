@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <style>
+        section {
+            width: 300px;
+            margin: 200px auto;
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 15px;
+            text-align: center;
+            vertical-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div>
+            <label for="red">Red</label>
+            <input type="range" min="0" max="255" name="red" id="red">
+        </div>
+        <div>
+            <label for="green">Green</label>
+            <input type="range" min="0" max="255" name="green" id="green">
+        </div>
+        <div>
+            <label for="blue">Blue</label>
+            <input type="range" min="0" max="255" name="blue" id="blue">
+        </div>
+        <div id="test">
+            test img
+        </div>
+    </section>
+    <script>
+        var red = document.getElementById("red");
+        var green = document.getElementById("green");
+        var blue = document.getElementById("blue");
+        var test = document.getElementById("test");
+
+        function updateColor() {
+            var r = red.value;
+            var g = green.value;
+            var b = blue.value;
+            test.style.color = `rgb(${r}, ${g}, ${b})`;
+        }
+
+        red.addEventListener("input", updateColor);
+        green.addEventListener("input", updateColor);
+        blue.addEventListener("input", updateColor);
+
+    </script>
+</body>
+
+</html>

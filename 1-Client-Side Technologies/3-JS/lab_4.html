@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4</title>
+</head>
+
+<body>
+    <script>
+        //[Task 1]
+        var car = {
+            brand: "Toyota",
+            model: "Corolla",
+            year: 2022,
+            displayDetails: function () {
+                var details = "Car Details:\n" +
+                    "Brand: " + this.brand + "\n" +
+                    "Model: " + this.model + "\n" +
+                    "Year: " + this.year;
+                alert(details);
+            }
+        };
+        car.displayDetails();
+
+        //[Task 2]
+        var person = {
+            name: "Alice",
+            age: 30,
+            job: "Engineer"
+        };
+        for (var key in person) {
+            if (person.hasOwnProperty(key)) {
+                console.log(key + ": " + person[key]);
+            }
+        }
+
+
+        //[Task 3]
+        function swapKeysAndValues(obj) {
+            var swapped = {};
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    swapped[obj[key]] = key;
+                }
+            }
+            return swapped;
+        }
+        var original = {
+            name: "Alice",
+            age: "30",
+            job: "Engineer"
+        };
+        var swapped = swapKeysAndValues(original);
+        console.log("Original:", original);
+        console.log("Swapped:", swapped);
+
+        //[Task 4]
+        var person = {
+            name: "Abdelrahman",
+            address: {
+                street: "123 Main St",
+                city: "Cairo",
+                country: "Egypt"
+            },
+            job: {
+                title: "Software Developer",
+                company: "Google",
+                yearsExperience: 8
+            },
+            displayDetails: function () {
+                var details = "Person Details:\n" +
+                    "Name: " + this.name + "\n" +
+                    "\nAddress:\n" +
+                    "Street: " + this.address.street + "\n" +
+                    "City: " + this.address.city + "\n" +
+                    "Country: " + this.address.country + "\n" +
+                    "\nJob:\n" +
+                    "Title: " + this.job.title + "\n" +
+                    "Company: " + this.job.company + "\n" +
+                    "Experience: " + this.job.yearsExperience + " years";
+                alert(details);
+            }
+        };
+        person.displayDetails();
+
+
+        //[Task 5]
+        var people = [
+            { name: "person1", age: 32 },
+            { name: "person3", age: 25 },
+            { name: "person4", age: 40 },
+            { name: "person2", age: 28 }
+        ];
+        console.log("Before Sorting");
+        for (var i = 0; i < people.length; i++) {
+            console.log(people[i].name + " - Age: " + people[i].age);
+        }
+        people.sort(function (a, b) {
+            return a.age - b.age;
+        });
+        console.log("After Sorting");
+        for (var i = 0; i < people.length; i++) {
+            console.log(people[i].name + " - Age: " + people[i].age);
+        }
+
+        //[Task 6]
+        var numbers = [45, 12, 78, 4, 90, 23];
+        var max = numbers[0];
+        var min = numbers[0];
+        for (var i = 1; i < numbers.length; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+            if (numbers[i] < min) {
+                min = numbers[i];
+            }
+        }
+        console.log("Maximum number: " + max);
+        console.log("Minimum number: " + min);
+
+        //[Task 7]
+        var originalArray = [10, 20, 30, 40, 50];
+        var reversedArray = [];
+        for (var i = originalArray.length - 1; i >= 0; i--) {
+            reversedArray.push(originalArray[i]);
+        }
+        console.log("Original Array:", originalArray);
+        console.log("Reversed Array:", reversedArray);
+
+        //[Task 8]
+        var products = [
+            { name: "Laptop", price: 1000 },
+            { name: "Phone", price: 600 },
+            { name: "Tablet", price: 400 }
+        ];
+        function applyDiscount(productList, discountPercent) {
+            var discountedProducts = [];
+            for (var i = 0; i < productList.length; i++) {
+                var product = productList[i];
+                var discountedPrice = product.price - (product.price * discountPercent / 100);
+                var newProduct = {
+                    name: product.name,
+                    price: product.price,
+                    discountedPrice: discountedPrice
+                };
+
+                discountedProducts.push(newProduct);
+            }
+            return discountedProducts;
+        }
+        var result = applyDiscount(products, 10);
+        console.log(result);
+
+        //[Task 9]
+        function getDayName(dateString) {
+            var date = new Date(dateString);
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var dayIndex = date.getDay();
+            return days[dayIndex];
+        }
+        var input = "2025-07-25";
+        var dayName = getDayName(input);
+        console.log("Day is:", dayName);
+
+        //[Task 10]
+        var input1 = prompt("Enter numbers (e.g., 1,6,5,9,1,2):");
+        var input2 = prompt("Enter more numbers (e.g., 5,6,3,1,9):");
+        var arr1 = input1.split(",").map(function (item) {
+            return parseInt(item, 10);
+        });
+        var arr2 = input2.split(",").map(function (item) {
+            return parseInt(item, 10);
+        });
+        var merged = arr1.concat(arr2);
+        var unique = [];
+        for (var i = 0; i < merged.length; i++) {
+            if (unique.indexOf(merged[i]) === -1) {
+                unique.push(merged[i]);
+            }
+        }
+        alert("Merged and unique array: " + unique.join(", "));
+        console.log("Unique array:", unique);
+
+        //[Task 11]
+        var contacts = [];
+        function addContact() {
+            var name = prompt("Enter contact name:");
+            var phone = prompt("Enter phone number:");
+            var contact = {
+                name: name,
+                phone: phone
+            };
+            contacts.push(contact);
+            alert("Contact added successfully.");
+        }
+        function searchContact() {
+            var keyword = prompt("Enter name or phone to search:");
+            var found = false;
+            for (var i = 0; i < contacts.length; i++) {
+                var c = contacts[i];
+                if (c.name.indexOf(keyword) !== -1 || c.phone.indexOf(keyword) !== -1) {
+                    alert("Contact found:\nName: " + c.name + "\nPhone: " + c.phone);
+                    found = true;
+                }
+            }
+            if (!found) {
+                alert("No contact found matching: " + keyword);
+            }
+        }
+        while (true) {
+            var operation = prompt("Enter operation: add, search, or exit");
+            if (operation === "add") {
+                addContact();
+            } else if (operation === "search") {
+                searchContact();
+            } else if (operation === "exit") {
+                alert("Goodbye!");
+                break;
+            } else {
+                alert("Invalid operation. Please enter add, search, or exit.");
+            }
+        }
+
+        //[Task 12]
+        function mergeObjects(obj1, obj2) {
+            var merged = {};
+            for (var key in obj1) {
+                merged[key] = obj1[key];
+            }
+            for (var key in obj2) {
+                if (key in merged) {
+                    merged[key + "_1"] = obj2[key];
+                } else {
+                    merged[key] = obj2[key];
+                }
+            }
+            return merged;
+        }
+        var object1 = {
+            name: "Alice",
+            age: 25,
+            city: "Cairo"
+        };
+        var object2 = {
+            age: 30,
+            city: "Alex",
+            country: "Egypt"
+        };
+        var result = mergeObjects(object1, object2);
+        console.log(result);
+
+
+    </script>
+</body>
+
+</html>

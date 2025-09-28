@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Get My Location</title>
+</head>
+<body style="text-align:center; font-family:Arial; padding:50px;">
+  <h1>Get My Location</h1>
+  <button onclick="getLocation()">Get My Location</button>
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(openOnMap);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function openOnMap(position) {
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      var mapUrl = "https://www.google.com/maps?q=" + lat + "," + lon;
+      window.open(mapUrl, "_blank");
+    }
+  </script>
+</body>
+</html>

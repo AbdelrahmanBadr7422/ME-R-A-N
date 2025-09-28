@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Day 6 P1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      text-align: center;
+    }
+    .slider-container {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      margin: 40px auto;
+      border: 3px solid #444;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #000;
+    }
+    .slider-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .title {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    .controls button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider-container">
+    <img id="slider-image" src="" alt="Slider">
+    <div class="title" id="image-title">Loading...</div>
+  </div>
+
+  <div class="controls">
+    <button onclick="previousImage()">⏮ Previous</button>
+    <button onclick="nextImage()">⏭ Next</button>
+    <button onclick="startSlider()">▶ Play</button>
+    <button onclick="stopSlider()">⏹ Stop</button><br>
+    <button onclick="changeSpeed(6000)">1x (6s)</button>
+    <button onclick="changeSpeed(4000)">2x (4s)</button>
+    <button onclick="changeSpeed(2000)">3x (2s)</button>
+  </div>
+
+  <script>
+    var images = [];
+    var currentIndex = 0;
+    var slideDelay = 6000;
+    var timer = null;
+    var isPlaying = false;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api.slingacademy.com/v1/sample-data/photos", true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var response = JSON.parse(xhr.responseText);
+        images = response.photos;
+        displayImage();
+      }
+    };
+    xhr.send();
+
+    function displayImage() {
+      if (images.length === 0) return;
+      var img = document.getElementById("slider-image");
+      var title = document.getElementById("image-title");
+      img.src = images[currentIndex].url;
+      title.innerHTML = images[currentIndex].title;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      displayImage();
+      if (isPlaying) {
+        restartTimeout();
+      }
+    }
+
+    function previousImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      displayImage();
+      if (isPlaying) {
+        restartTimeout();
+      }
+    }
+
+    function startSlider() {
+      if (!isPlaying) {
+        isPlaying = true;
+        runSlider();
+      }
+    }
+
+    function stopSlider() {
+      isPlaying = false;
+      clearTimeout(timer);
+    }
+
+    function runSlider() {
+      if (!isPlaying) return;
+      timer = setTimeout(function() {
+        nextImage();
+        runSlider();
+      }, slideDelay);
+    }
+
+    function restartTimeout() {
+      clearTimeout(timer);
+      runSlider();
+    }
+
+    function changeSpeed(newDelay) {
+      slideDelay = newDelay;
+      if (isPlaying) {
+        restartTimeout();
+      }
+    }
+  </script>
+
+</body>
+</html>

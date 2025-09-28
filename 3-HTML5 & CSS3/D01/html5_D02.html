@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <style>
+        form {
+            width: 400px;
+            border: 1px solid black;
+            padding: 50px;
+            border-radius: 15px;
+            margin: 100px auto;
+        }
+        label {
+            margin: 10px;
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Email">
+    <br><br>
+
+    <label for="website">Website:</label>
+    <input type="url" id="website" name="website" required placeholder="Website Link">
+    <br><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="0123456789">
+    <br><br>
+
+    <label for="color">Favorite Color:</label>
+    <input type="color" id="color" name="color" value="#ff0000">
+    <br><br>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required max="2025-12-31">
+    <br><br>
+
+    <label for="skill">Skill Level:</label>
+    <meter id="skill" min="0" max="100" value="70">70%</meter>
+    <br><br>
+
+    <label for="upload">Upload Progress:</label>
+    <progress id="upload" max="100" value="40">40%</progress>
+    <br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>

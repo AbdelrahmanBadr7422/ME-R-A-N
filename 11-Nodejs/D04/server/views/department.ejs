@@ -1,0 +1,102 @@
+<%- include('header') %>
+
+  <h2>Departments</h2>
+
+  <div class="mb-4">
+    <h4>Add a New Department</h4>
+    <form id="departmentForm" method="POST" onsubmit="addDepartment(event)">
+      <div class="form-group">
+        <input id="newDept" class="form-control" type="text" name="name" placeholder="Department Name" required />
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Add Department</button>
+    </form>
+  </div>
+
+  <h4>All Departments</h4>
+  <table class="table table-striped mt-4">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number of Courses</th>
+        <th>Courses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% departments.forEach(dep=> { %>
+        <tr>
+          <td>
+            <%= dep.name %>
+          </td>
+          <td>
+            <%= dep.courses.length %>
+          </td>
+          <td>
+            <% if (dep.courses.length> 0) { %>
+              <ul>
+                <% dep.courses.forEach(course=> { %>
+                  <li>
+                    <%= course.name %>
+                  </li>
+                  <% }) %>
+              </ul>
+              <% } else { %>
+                <p>No courses assigned</p>
+                <% } %>
+          </td>
+        </tr>
+        <% }) %>
+    </tbody>
+
+    <div id="messageContainer" class="mt-4"></div>
+
+  </table>
+  <script>
+    async function addDepartment(event) {
+      event.preventDefault();
+
+      let newDepartment = document.getElementById('newDept').value;
+      const messageContainer = document.getElementById('messageContainer');
+
+      try {
+        const response = await fetch('/api/departments', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name: newDepartment })
+        });
+
+        if (!response.ok) {
+          const error = await response.json();
+          messageContainer.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
+          return;
+        }
+
+        const result = await response.json();
+
+        document.getElementById('newDept').value = '';
+
+        messageContainer.innerHTML = '';
+
+        const tableBody = document.querySelector('table tbody');
+        const newRow = document.createElement('tr');
+
+        newRow.innerHTML = `
+        <td>${result.name}</td>
+        <td>${result.courses.length}</td>
+        <td>
+          ${result.courses.length > 0 ?
+            `<ul>${result.courses.map(course => `<li>${course.name}</li>`).join('')}</ul>` :
+            '<p>No courses assigned</p>'
+          }
+        </td>
+      `;
+
+        tableBody.appendChild(newRow);
+
+        messageContainer.innerHTML = `<div class="alert alert-success">Department "${result.name}" added successfully!</div>`;
+      } catch (error) {
+        messageContainer.innerHTML = `<div class="alert alert-danger">Failed to add department: ${error.message}</div>`;
+      }
+    }
+  </script>
