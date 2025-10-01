@@ -1,0 +1,52 @@
+:root {
+  --mianColor:rgb(55, 186, 196);
+}
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f4f4f4;
+  color: var(--mianColor)
+}
+a {
+  text-decoration: none;
+  color: var(--mianColor)
+}
+a:hover {
+  text-decoration: underline;
+}
+input {
+  padding: 10px;
+  width: 60%;
+  border: 1px solid var(--mianColor);
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: 1px solid var(--mianColor);
+  color: var(--mianColor);
+}
+
+button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: var(--mianColor);
+  border: 1px solid white;
+  color:white;
+}
+button:hover {
+  cursor: pointer;
+  border: 1px solid var(--mianColor);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
