@@ -1,0 +1,34 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false, // automatically compile files when saved
+  "compilerOptions": {
+    "strict": true, // strict type-checking options
+    "noImplicitOverride": true, // overriding of methods without explicit declaration  -  must have an 'override' modifier
+    "noPropertyAccessFromIndexSignature": true, // disallow property access from index signatures obj["key"] if no signature exists
+    "noImplicitReturns": true, // return type checks in all functions all blocks must return something
+    "noFallthroughCasesInSwitch": true, // Ensures that any non-empty case inside a switch statement includes either break, return, or throw.
+    "skipLibCheck": true, // skip type checking of declaration files
+    "isolatedModules": true, // each file is treated as an isolated module - cant use standalone functions
+    "experimentalDecorators": true, // experimental decorators -> JS cant use decorators
+    "importHelpers": true, // Import helpers from external libraries to reduce bundle size
+    "target": "ES2022", // ES version target
+    "module": "preserve" // preserve the module structure from TypeScript (used in bundling scenarios)
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true, // ensure strict validation for Angular DI (dependency injection) parameters
+    "strictInputAccessModifiers": true, // Require strict access to input bindings in Angular components
+    "typeCheckHostBindings": true, // Enable strict template type checking in Angular components
+    "strictTemplates": true // Enable strict template validation, including bindings and directives
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}
