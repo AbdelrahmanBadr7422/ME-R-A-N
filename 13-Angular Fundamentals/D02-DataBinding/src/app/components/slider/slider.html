@@ -1,0 +1,13 @@
+<div id="carouselExampleSlidesOnly" class="carousel slide container" data-ride="carousel">
+  <div class="carousel-inner my-1 rounded">
+    <div class="carousel-item active">
+      <img class="d-block w-70" style="height: 80vh;" [src]="currentUrl" alt="First slide">
+    </div>
+  </div>
+  <div class="buttons d-flex justfy-content-evenly">
+    <button class="btn btn-primary px-5 py-2" (click)="prev()">previos</button>
+    <button class="btn btn-danger px-5 py-2" (click)="stop()">stop</button>
+    <button class="btn btn-success px-5 py-2" (click)="start()">start</button>
+    <button class="btn btn-primary px-5 py-2" (click)="next()">next</button>
+  </div>
+</div>

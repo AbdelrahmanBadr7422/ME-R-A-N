@@ -1,0 +1,29 @@
+<section class="container mt-3">
+  <div class="mb-5">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" #nameRef>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="name" class="form-control" id="email" #emailRef>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="show(nameRef.value,emailRef.value)">Submit</button>
+  </div>
+  <table class="table" [class.d-none]="isHidden">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(name of names;track $index){
+      <tr>
+        <td>{{name}}</td>
+        <td>{{emails[$index]}}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</section>

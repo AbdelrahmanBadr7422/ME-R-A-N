@@ -1,6 +1,25 @@
-# Day1Basics
+# D02DataBinding: Data Binding & Image Slider
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3.
+
+## This project implements two key features:
+
+* Data Binding from input fields and appending it to a table for viewing.
+
+* Image Slider with controls (start, stop, next, previous buttons) to view images.
+
+## Features
+#### Data Binding to Table:
+
+* Capture user input through inputs (e.g., text fields).
+
+* Bind input values to the model and display them in a table dynamically.
+#### Image Slider:
+* A carousel-style slider to display images.
+
+* Navigation controls (Start, Stop, Next, Previous).
+
+* Automatic or manual navigation of images.
 
 ## Development server
 
