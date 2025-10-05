@@ -1,0 +1,25 @@
+ <div class="container py-4">
+      <h1 class="mb-3">🛍️ Product Dashboard</h1>
+
+      <app-favorite [favorite]="favoriteProduct"></app-favorite>
+
+      <div class="row mt-4">
+        <div class="col-md-5">
+          <app-product-form
+            [editProduct]="selectedProduct"
+            (addProduct)="addProduct($event)"
+            (updateProduct)="updateProduct($event)"
+            (cancelEdit)="cancelEdit()"
+          ></app-product-form>
+        </div>
+
+        <div class="col-md-7">
+          <app-product-list
+            [products]="products"
+            (deleteProduct)="deleteProduct($event)"
+            (favoriteProduct)="setFavorite($event)"
+            (editProduct)="editProduct($event)"
+          ></app-product-list>
+        </div>
+      </div>
+    </div>
