@@ -1,0 +1,14 @@
+.card {
+  transition: box-shadow 0.3s ease-in-out;
+}
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+.btn-group {
+  gap: 0.5rem;
+}
+input[disabled] {
+  background-color: white;
+  border: none;
+  color: #555;
+}

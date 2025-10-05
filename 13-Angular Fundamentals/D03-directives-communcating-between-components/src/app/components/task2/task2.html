@@ -1,0 +1,13 @@
+<div class="container py-4">
+    <h2>Prdouct Dashboard</h2>
+  <div class="mt-4">
+    <p><strong>Favorite Products:</strong></p>
+    <ul>
+      @for (favprd of favoriteProducts; track $index) {
+      <li>{{ favprd.name }}</li>
+      }
+    </ul>
+  </div>
+  <app-prd-form (onPrdAdded)="addProduct($event)"></app-prd-form>
+  <app-prd-list [products]="productList" (favList)="updateFavorites($event)"> </app-prd-list>
+</div>
