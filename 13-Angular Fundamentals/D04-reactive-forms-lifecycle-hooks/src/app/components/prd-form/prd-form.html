@@ -1,0 +1,27 @@
+<form [formGroup]="prdForm" (submit)="onSubmit()">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Product Name</div>
+    </div>
+    <input formControlName="prdName" type="text" class="form-control" placeholder="Product Name">
+  </div>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Description</div>
+    </div>
+    <input formControlName="desc" type="text" class="form-control" placeholder="Description">
+  </div>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Image Url</div>
+    </div>
+    <input formControlName="imageUrl" type="text" class="form-control" placeholder="Image Url">
+  </div>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Rate</div>
+    </div>
+    <input formControlName="rate" type="text" class="form-control" placeholder="Rate">
+  </div>
+  <button type="submit" [disabled]="!prdForm.valid" class="btn btn-primary mb-2">Add Product</button>
+</form>

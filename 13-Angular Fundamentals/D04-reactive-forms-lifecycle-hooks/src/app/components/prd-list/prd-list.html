@@ -1,0 +1,12 @@
+<section class="container">
+  @for (prd of prdList; track $index) {
+  <div class="card" style="width: 18rem;">
+    <img [src]="prd.imageUrl" class="card-img-top" [alt]="prd.name">
+    <div class="card-body">
+      <h5 class="card-title"><strong>Title</strong>{{prd.name}}</h5>
+      <p class="card-text"><strong>Description</strong>{{prd.description}}</p>
+      <p class="card-text"><strong>Rate</strong>{{prd.rate}}</p>
+    </div>
+  </div>
+  }
+</section>
