@@ -1,0 +1,12 @@
+<div class="container d-flex flex-wrap justify-content-between">
+  @for (prd of prds; track $index) {
+  <div class="card mb-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{prd.title}}</h5>
+      <p class="card-text">{{prd.description}}</p>
+      <a [routerLink]="['/prds', prd.id]" class="btn btn-primary">Go To Product no. {{prd.id}}</a>
+    </div>
+  </div>
+  }
+
+</div>

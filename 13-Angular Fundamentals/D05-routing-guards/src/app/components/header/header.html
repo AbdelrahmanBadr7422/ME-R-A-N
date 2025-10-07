@@ -1,0 +1,20 @@
+<header
+  class="d-flex flex-wrap align-items-center justify-content-center justify-content-center py-3 mb-4 border-bottom">
+  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <li class="px-2"><a routerLink="/home" routerLinkActive="bg-primary text-light"
+        class="nav-link px-2 link-dark rounded" role="button">Home</a></li>
+    <li class="px-2"><a routerLink="/prds" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="bg-primary text-light" class="nav-link px-2 link-dark rounded" role="button">Product List</a>
+    </li>
+    <li class="px-2"><a routerLink="/about" routerLinkActive="bg-primary text-light"
+        class="nav-link px-2 link-dark rounded" role="button">About</a></li>
+    <li class="px-2">
+      @if(!isLogged()){
+      <a type="button" class="btn btn-outline-primary me-2" routerLink="/login"
+        routerLinkActive="bg-primary text-light">Login</a>
+      }@else {
+      <button type="button" class="btn btn-outline-secondary me-2" (click)="logout()">Logout</button>
+      }
+    </li>
+  </ul>
+</header>
