@@ -2,19 +2,20 @@
 ## Built with the tools and technologies:
 
 ![Languages](https://img.shields.io/badge/Languages-(6)-blue)
-![Express](https://img.shields.io/badge/Express-black)
-![JSON](https://img.shields.io/badge/-JSON-lightgrey)
-![Markdown](https://img.shields.io/badge/-Markdown-black)
-![npm](https://img.shields.io/badge/-npm-red)
-![Mongoose](https://img.shields.io/badge/Mongoose-orange)
-![ENV](https://img.shields.io/badge/-.ENV-yellow)
-![JavaScript](https://img.shields.io/badge/-JavaScript-yellow)
-![EJS](https://img.shields.io/badge/EJS-green)
-![NodeMon](https://img.shields.io/badge/-Nodemon-brightgreen)
-![AJV](https://img.shields.io/badge/-AJV-cyan)
+![Angular](https://img.shields.io/badge/-Angular_V20-red)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-blue)
-![ts-node](https://img.shields.io/badge/-tsnode-blueviolet)
+![JavaScript](https://img.shields.io/badge/-JavaScript-yellow)
+![npm](https://img.shields.io/badge/-npm-red)
+![Express](https://img.shields.io/badge/Express-green)
+![AJV](https://img.shields.io/badge/-AJV_Validation-orange)
+![NOSQL](https://img.shields.io/badge/NOSQL-cyan)
+![Mongoose](https://img.shields.io/badge/Mongoose-orange)
+![HTML](https://img.shields.io/badge/-HTML5-lightgrey)
+![CSS](https://img.shields.io/badge/CSS3-blue)
 ![Bootstrap](https://img.shields.io/badge/-Bootstrap-purple)
+![JSON](https://img.shields.io/badge/-JSON-lightgrey)
+![JQuery](https://img.shields.io/badge/-JQuery-lightgrey)
+![ECMAScript](https://img.shields.io/badge/ECMAScript-green)
 
 ---
 
@@ -22,14 +23,14 @@
 
 A customized tech stack designed to streamline full-stack development, incorporating a blend of modern libraries, tools, and frameworks including:
 
-- **MongoDB / Mongoose**
+- **NOSQL ( MongoDB / Mongoose )**
 - **Express.js**
 - **Angular V20**
 - **React.js**
-- **AJV / JSON Schema Validation**
 - **Node.js / Nodemon / ts-node**
+- **AJV / JSON Schema Validation**
 - **TypeScript / JavaScript**
-- **Bootstrap / EJS / HTML / Markdown**
+- **Bootstrap / EJS / HTML **
 
 ---
 
