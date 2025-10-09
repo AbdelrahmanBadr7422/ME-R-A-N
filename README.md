@@ -30,7 +30,7 @@ A customized tech stack designed to streamline full-stack development, incorpora
 - **Node.js / Nodemon / ts-node**
 - **AJV / JSON Schema Validation**
 - **TypeScript / JavaScript**
-- **Bootstrap / EJS / HTML **
+- **Bootstrap / EJS / HTML**
 
 ---
 
