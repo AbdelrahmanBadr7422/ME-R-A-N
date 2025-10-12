@@ -1,0 +1,67 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "price": 99.99,
+      "categoryId": 1,
+      "image": "https://via.placeholder.com/200x200?text=Headphones",
+      "description": "High-quality wireless headphones with noise cancellation."
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "price": 699.99,
+      "categoryId": 1,
+      "image": "https://via.placeholder.com/200x200?text=Smartphone",
+      "description": "Latest smartphone with fast processor and large display."
+    },
+    {
+      "id": 3,
+      "name": "Running Shoes",
+      "price": 59.99,
+      "categoryId": 2,
+      "image": "https://via.placeholder.com/200x200?text=Shoes",
+      "description": "Comfortable and durable running shoes for everyday use."
+    },
+    {
+      "id": 4,
+      "name": "Wrist Watch",
+      "price": 149.99,
+      "categoryId": 3,
+      "image": "https://via.placeholder.com/200x200?text=Watch",
+      "description": "Stylish analog wrist watch with leather strap."
+    }
+  ],
+  "categories": [
+    { "id": 1, "name": "Electronics" },
+    { "id": 2, "name": "Sportswear" },
+    { "id": 3, "name": "Accessories" }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "password": "abcdef"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "items": [
+        { "productId": 2, "quantity": 1 },
+        { "productId": 3, "quantity": 2 }
+      ],
+      "total": 819.97,
+      "status": "pending"
+    }
+  ]
+}

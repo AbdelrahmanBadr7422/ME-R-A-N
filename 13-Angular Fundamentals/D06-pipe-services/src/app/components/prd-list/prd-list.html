@@ -1,0 +1,12 @@
+<section class="container d-flex flex-wrap justify-content-evenly">
+  @for (prd of prdlist; track $index) {
+  <div class="card m-2" style="width: 18rem;">
+    <img [src]="prd.images[0]" class="card-img-top" [alt]="prd.title">
+    <div class="card-body">
+      <p class="card-text">{{prd.price|currency}}</p>
+      <h5 class="card-title">{{prd.title}}</h5>
+      <a class="btn btn-warning w-100" [routerLink]="[prd.id]">Details</a>
+    </div>
+  </div>
+  }
+</section>

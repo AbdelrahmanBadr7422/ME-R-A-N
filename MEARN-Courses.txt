@@ -1,0 +1,37 @@
+--------- Done --------
+1-Client-Side Technologies
+2-Network and security fundamentals workshop
+3-Communication Skills Course
+4-Advanced JavaScript
+5-HTML5 & CSS3
+6-jQuery Fundamentals
+7-Operating Systems Fundamentals Workshop
+8-Presentation Skills Course
+9-Introduction to Software testing workshop
+10-CV and Interviewing Skills
+11-Responsive Web Fundamentals and BootStrap
+12-NoSQL Database Fundamentals
+13-CSS preprocessor
+14-Agile WorkShop
+15-Database Fundamentals Workshop
+16-Node.js Fundamentals
+17-Modern JavaScript (ES6+) and TypeScript Fundamentals
+18-Source Control
+19-PWA
+20-Angular Fundamentals
+--------- Inqueue --------
+21-React JS
+22-GraphQL API
+23-UI/UX Design Principle Fundamentals
+24-JavaScript Unit Testing
+25-Material UI for React.js
+26-Next.js Fundamentals
+27-JavaScript Design Patterns
+--------- Unknown --------
+-Nest.js
+-Introduction to Generative AI and prompt engineering
+-AI-powered Coding Assistant tools
+-Developing Gen-AI based software
+-Secure coding
+-Business Ethics
+34-Graduation Project

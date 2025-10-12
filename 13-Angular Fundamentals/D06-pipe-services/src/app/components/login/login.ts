@@ -6,30 +6,30 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   imports: [ReactiveFormsModule],
   templateUrl: './login.html',
-  styleUrls: ['./login.css'],
+  styleUrl: './login.css'
 })
 export class Login {
-  private router = inject(Router);
+private router = inject(Router);
   isLogged:boolean | null = null;
-  Mock_loginForm: FormGroup;
+  loginForm: FormGroup;
   data:any;
   constructor() {
-    this.Mock_loginForm = new FormGroup({
+    this.loginForm = new FormGroup({
       username: new FormControl('', [Validators.required]),
       pass: new FormControl('', [Validators.required]),
     });
   }
 
   get username() {
-    return this.Mock_loginForm.get('username');
+    return this.loginForm.get('username');
   }
 
   get password() {
-    return this.Mock_loginForm.get('pass');
+    return this.loginForm.get('pass');
   }
 
   onSubmit() {
-    const { username, pass } = this.Mock_loginForm.value;
+    const { username, pass } = this.loginForm.value;
 
     if (username === 'user' && pass === 'user123') {
       localStorage.setItem('authToken', 'MOCK_TOKEN');

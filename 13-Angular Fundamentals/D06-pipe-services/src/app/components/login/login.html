@@ -1,0 +1,21 @@
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="container w-25 mt-5">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Username</div>
+    </div>
+    <input formControlName="username" type="text" class="form-control" placeholder="User Name">
+  </div>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Password</div>
+    </div>
+    <input formControlName="pass" type="text" class="form-control" placeholder="Password">
+  </div>
+  <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary mb-2">Login</button>
+</form>
+@if(isLogged == false){
+<div class="alert alert-danger container" role="alert">
+  Data Invalid
+</div>
+}
+
